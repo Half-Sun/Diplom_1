@@ -1,12 +1,13 @@
 from typing import List
 
-from praktikum.bun import Bun
-from praktikum.ingredient import Ingredient
+from diplom_1.bun import Bun
+from diplom_1.ingredient import Ingredient
 
 
 class Burger:
     """
     Модель бургера.
+
     Бургер состоит из булочек и ингредиентов (начинка или соус).
     Ингредиенты можно перемещать и удалять.
     Можно распечать чек с информацией о бургере.
@@ -40,9 +41,12 @@ class Burger:
         receipt: List[str] = [f'(==== {self.bun.get_name()} ====)']
 
         for ingredient in self.ingredients:
-            receipt.append(f'= {str(ingredient.get_type()).lower()} {ingredient.get_name()} =')
+            receipt.append(
+                f'= {str(ingredient.get_type()).lower()} {ingredient.get_name()} ='  # Информация об ингредиенте
+            )
 
         receipt.append(f'(==== {self.bun.get_name()} ====)\n')
         receipt.append(f'Price: {self.get_price()}')
 
         return '\n'.join(receipt)
+
