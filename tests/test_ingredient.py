@@ -3,7 +3,6 @@ from parameterized import parameterized
 from unittest.mock import MagicMock
 from diplom_1.ingredient import Ingredient
 
-
 class TestIngredient(unittest.TestCase):
 
     def setUp(self):
@@ -13,15 +12,6 @@ class TestIngredient(unittest.TestCase):
         self.assertEqual(self.ingredient.type, "SAUCE")
         self.assertEqual(self.ingredient.name, "Сырный")
         self.assertEqual(self.ingredient.price, 15.0)
-
-    def test_get_price(self):
-        self.assertEqual(self.ingredient.get_price(), 15.0)
-
-    def test_get_name(self):
-        self.assertEqual(self.ingredient.get_name(), "Сырный")
-
-    def test_get_type(self):
-        self.assertEqual(self.ingredient.get_type(), "SAUCE")
 
     @parameterized.expand([
         (10.50,),
@@ -50,7 +40,3 @@ class TestIngredient(unittest.TestCase):
     def test_type_formatting(self, mocked_type):
         self.ingredient.type = mocked_type
         self.assertEqual(self.ingredient.get_type(), mocked_type)
-
-
-if __name__ == "__main__":
-    unittest.main()

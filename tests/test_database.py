@@ -1,11 +1,11 @@
-
 import unittest
 from unittest.mock import patch
 from diplom_1.bun import Bun
 from diplom_1.ingredient import Ingredient
 from diplom_1.ingredient_types import INGREDIENT_TYPE_SAUCE
 from diplom_1.database import Database
-from diplom_1.conftest import SESAME_BUN_NAME, SESAME_BUN_PRICE, MUSTARD_INGREDIENT_NAME, MUSTARD_INGREDIENT_PRICE
+from diplom_1.data import SESAME_BUN_NAME, SESAME_BUN_PRICE, MUSTARD_INGREDIENT_NAME, MUSTARD_INGREDIENT_PRICE
+
 
 class TestDatabase(unittest.TestCase):
 
@@ -37,7 +37,3 @@ class TestDatabase(unittest.TestCase):
         available_ingredients = db.available_ingredients()
 
         self.assertEqual(available_ingredients, test_ings)
-
-
-if __name__ == "__main__":
-    unittest.main()

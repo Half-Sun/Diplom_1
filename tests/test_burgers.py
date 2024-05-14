@@ -7,9 +7,8 @@ from diplom_1.burger import Burger
 
 class TestBurger(unittest.TestCase):
 
-    def setUp(self) -> Burger:
+    def setUp(self):
         self.burger = Burger()
-        return self.burger
 
     def test_init(self):
         self.assertEqual(self.burger.bun, None)
@@ -90,4 +89,3 @@ class TestBurger(unittest.TestCase):
 
         for expected_substring in expected_substrings:
             self.assertIn(expected_substring, actual_receipt)
-
