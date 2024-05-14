@@ -3,6 +3,7 @@ from parameterized import parameterized
 from unittest.mock import MagicMock
 from diplom_1.ingredient import Ingredient
 
+
 class TestIngredient(unittest.TestCase):
 
     def setUp(self):

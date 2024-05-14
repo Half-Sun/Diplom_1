@@ -9,13 +9,14 @@ from diplom_1.data import SESAME_BUN_NAME, SESAME_BUN_PRICE, MUSTARD_INGREDIENT_
 
 class TestDatabase(unittest.TestCase):
 
+    def setUp(self):
+        self.db = Database()
+
     def test_init(self):
-        db = Database()
+        self.assertEqual(len(self.db.buns), 3)
+        self.assertEqual(len(self.db.ingredients), 6)
 
-        self.assertEqual(len(db.buns), 3)
-        self.assertEqual(len(db.ingredients), 6)
-
-        found_black_bun = any(bun.name == "black bun" and bun.price == 100 for bun in db.buns)
+        found_black_bun = any(bun.name == "black bun" and bun.price == 100 for bun in self.db.buns)
         self.assertTrue(found_black_bun)
 
     @patch.object(Database, 'available_buns')
@@ -23,8 +24,7 @@ class TestDatabase(unittest.TestCase):
         test_buns = [Bun(SESAME_BUN_NAME, SESAME_BUN_PRICE)]
         mock_available_buns.return_value = test_buns
 
-        db = Database()
-        available_buns = db.available_buns()
+        available_buns = self.db.available_buns()
 
         self.assertNotEqual(available_buns, [])
 
@@ -33,7 +33,6 @@ class TestDatabase(unittest.TestCase):
         test_ings = [Ingredient(INGREDIENT_TYPE_SAUCE, MUSTARD_INGREDIENT_NAME, MUSTARD_INGREDIENT_PRICE)]
         mock_available_ingredients.return_value = test_ings
 
-        db = Database()
-        available_ingredients = db.available_ingredients()
+        available_ingredients = self.db.available_ingredients()
 
         self.assertEqual(available_ingredients, test_ings)
