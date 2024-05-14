@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod
+
+# IDE
+.idea/
+.vscode/
+
+# Виртуальное окружение
+venv/
+env/
+
+# Конфигурация
+*.ini
+*.conf
+
+# Временные файлы
+*.tmp
+*.log
+*.swp
+
+# Настройки окружения
+.env
